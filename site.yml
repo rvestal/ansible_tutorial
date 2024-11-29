@@ -4,25 +4,20 @@
   become: true
   pre_tasks:
 
-  - name: install updates (AlmaLinux)
+  - name: Update repo cache (AlmaLinux)
     tags: always
     dnf: 
-      update_only: yes
       update_cache: yes
+    changed_when: false
     when: ansible_distribution == "AlmaLinux"
  
-  - name: install updates (Ubuntu)
+  - name: Update repo cache (Ubuntu)
     tags: always
     apt: 
-     upgrade: dist
      update_cache: yes
+    changed_when: false
     when: ansible_distribution == "Ubuntu"
 
-  - name: create simone user
-    tags: always
-    user:
-      name: simone
-      groups: root
 
 - hosts: workstations
   become: true
