@@ -1,0 +1,14 @@
+- name: install mariadb package (AlmaLinux)
+  tags: almalinux,db,mariadb
+  dnf:
+    name: mariadb
+    state: latest
+  when: ansible_distribution == "AlmaLinux"
+
+- name: install mariadb package (Ubuntu)
+  tags: almalinux,db,mariadg
+  apt:
+    name: mariadb-server
+    state: latest
+  when: ansible_distribution == "Ubuntu"
+
